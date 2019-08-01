@@ -77,5 +77,8 @@ matching to the selected time and display the result on the map. For example a [
 Again once finished with task 2 make a commit that indicated task 2 has been finished. 
 
 # Notes
-You are free do install new packages. If you want to adapt styling you can do so by changing `client/dist/styles.js`. If you have an idea to solve a task in a better way feel free to do so. 
+- You are free to install new packages if it makes sense.
+- If you want to adapt styling you can do so by changing `client/dist/styles.js`.
+- If you have an idea to solve a task in a better way feel free to do so. 
+
 Happy coding!
