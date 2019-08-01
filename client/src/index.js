@@ -1,6 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import MapComponent from './map_component'
+import './styles.css'
 
 const Index = () => {
   return (
@@ -14,4 +15,4 @@ const Index = () => {
     </div>)
 }
 
-ReactDOM.render(<Index />, document.getElementById('index'))
+ReactDOM.render(<Index />, document.getElementById('main-container'))

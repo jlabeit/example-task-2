@@ -29,7 +29,7 @@ To build the client go into the directory `client` and run
 npm install
 npm run start
 ```
-Then open the file `client/dist/index.hmtl` in your browser. Make sure that
+Then the font-end should automatically open in your browser (localhost:8080). Make sure that
 the server is still running! Now you sould see a visual representation of the
 tracking data on a map.
 
@@ -78,7 +78,7 @@ Again once finished with task 2 make a commit that indicated task 2 has been fin
 
 # Notes
 - You are free to install new packages if it makes sense.
-- If you want to adapt styling you can do so by changing `client/dist/styles.css`.
+- If you want to adapt styling you can do so by changing `client/src/styles.css`.
 - If you have an idea to solve a task in a better way feel free to do so. 
 
 Happy coding!
