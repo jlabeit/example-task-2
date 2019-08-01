@@ -1,6 +1,5 @@
 const express = require('express')
 const app = express()
-const Moment = require('moment')
 
 app.use((req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");
@@ -8,23 +7,11 @@ app.use((req, res, next) => {
   next();
 });
 
-const dummyShedule = [{
-  type: 'DRIVING',
-  start: Moment(),
-  duration: 4.5 * 60,
-}, {
-  type: 'BREAK',
-  start: Moment().add(4.5, 'hours'),
-  duration: 45,
-}, {
-  type: 'DRIVING',
-  start: Moment().add(4.5, 'hours').add(45, 'minutes'),
-  duration: 4.5 * 60,
-}]
+const exampleData = require('../data/tracking.json')
+
 
 app.get('/', (req, res) => {
-  // TODO: implement.
-  res.send(dummyShedule)
+  res.send(exampleData)
 })
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
