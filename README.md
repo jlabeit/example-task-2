@@ -10,7 +10,7 @@ data. This example task is about showing historic tracking data to
 dispatchers on a leaflet map.
 
 The application has two parts
-- The client (in the `client` directory) a react front-end used to display the historic data ont he map.
+- The client (in the `client` directory) a react front-end used to display the historic data on the map.
 - The server (in the `server` directory) a nodejs server used to retrieve and process the historic data.
 
 # Getting started
@@ -29,7 +29,7 @@ To build the client go into the directory `client` and run
 npm install
 npm run start
 ```
-Then open the file `client/dist/index.hmtl` in the browser. Make sure that
+Then open the file `client/dist/index.hmtl` in your browser. Make sure that
 the server is still running! Now you sould see a visual representation of the
 tracking data on a map.
 
@@ -72,4 +72,10 @@ time in the past. Choose a sensible time range so that tracking data is
 available for this range. Pass the selected time as prop to the map
 container.
 3. Adapt the map container (`client/src/map_container`) to fetch the data
-matching to the selected time and display the result on the map.Forthe [leafletmarker](https://leafletjs.com/reference-1.5.0.html#marker) can be used to display the location.
+matching to the selected time and display the result on the map. For example a [leaflet marker](https://leafletjs.com/reference-1.5.0.html#marker) can be used to display the location.
+
+Again once finished with task 2 make a commit that indicated task 2 has been finished. 
+
+# Notes
+You are free do install new packages. If you want to adapt styling you can do so by changing `client/dist/styles.js`. If you have an idea to solve a task in a better way feel free to do so. 
+Happy coding!
