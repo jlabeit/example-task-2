@@ -78,7 +78,7 @@ Again once finished with task 2 make a commit that indicated task 2 has been fin
 
 # Notes
 - You are free to install new packages if it makes sense.
-- If you want to adapt styling you can do so by changing `client/dist/styles.js`.
+- If you want to adapt styling you can do so by changing `client/dist/styles.css`.
 - If you have an idea to solve a task in a better way feel free to do so. 
 
 Happy coding!
