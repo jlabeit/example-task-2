@@ -13,7 +13,7 @@ function colorGen() {
   return generateColor;
 }
 
-const MapComponent = () => {
+const MapComponent = props => {
   const map = useRef();
   const [locations, setLocations] = useState();
   // Request location data.
@@ -59,9 +59,17 @@ const MapComponent = () => {
   }, [locations, map.current]);
   // TODO(Task 2): Display location that the back-end returned on the map as a marker.
 
+  useEffect(() => {
+    if (props.chosenDate && props.chosenDate.lat) {
+      console.log(props.chosenDate);
+
+      map.current.addLayer(new L.Marker(new L.LatLng(props.chosenDate.lat, props.chosenDate.lon), 9));
+    }
+  }, [props.chosenDate]);
+
   return (
     <div>
-      {locations && `${locations.length} locations loaded`}
+      {locations && `${Object.keys(locations).length} locations loaded`}
       {!locations && 'Loading...'}
       <div id='mapid' />
     </div>

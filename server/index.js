@@ -30,7 +30,16 @@ app.get('/', (req, res) => {
 
 app.get('/location/:when', (req, res) => {
   // TODO(Task 2): Return the tracking data closest to `req.params.when` from `exampleData`.
-  res.send({});
+
+  let inputDate = moment(req.params.when);
+
+  for (let index = 0; index < exampleData.length; index++) {
+    const singleData = exampleData[index];
+    let date = moment(singleData.time);
+
+    if (Math.abs(inputDate.diff(date, 'minutes')) < 60) return res.send(singleData);
+  }
+  res.status(404).send({ message: 'No Data Found!' });
 });
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'));
