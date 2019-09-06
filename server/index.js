@@ -7,7 +7,8 @@ app.use((req, res, next) => {
   next()
 })
 
-const exampleData = require('../data/tracking.json')
+// getting data segments
+const exampleData = require('../data/segments')
 
 app.get('/', (req, res) => {
   // TODO(Task 1): Split tracking data into trip segments for example by using the time property.
