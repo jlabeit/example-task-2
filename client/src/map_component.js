@@ -8,7 +8,7 @@ const getRouteSummary = (locations) => {
   return `${from} - ${to}`
 }
 
-const MapComponent = () => {
+const MapComponent = (props) => {
   const map = useRef()
   const [locations, setLocations] = useState()
   // Request location data.
@@ -41,7 +41,6 @@ const MapComponent = () => {
     }
     // TODO(Task 1): Replace the single red polyline by the different segments on the map.
     locations.forEach((trip, index) => {
-      console.log(index);
       const colorCode = (Math.random()*0xFFFFFF<<0).toString(16);
       const latlons = trip.map(({ lat, lon }) => [lat, lon])
       const polyline = L.polyline(latlons, { color: `#${colorCode}` }).bindPopup(getRouteSummary(trip)).addTo(map.current)
@@ -49,6 +48,16 @@ const MapComponent = () => {
       return () => map.current.remove(polyline)
     });
   }, [locations, map.current])
+  
+  useEffect(() => {
+    if (props.nearLocation) {
+      map.current.addLayer(
+          new L.Marker(
+            new L.LatLng(props.nearLocation.lat, props.nearLocation.lon),
+            5
+      ));
+    }
+  }, [props.nearLocation])
   // TODO(Task 2): Display location that the back-end returned on the map as a marker.
 
   return (
@@ -56,6 +65,7 @@ const MapComponent = () => {
       {locations && `${locations.length} locations loaded`}
       {!locations && 'Loading...'}
       <div id='mapid' />
+      {/* {props.nearLocation ? props.nearLocation : 'no location'} */}
     </div>)
 }
 

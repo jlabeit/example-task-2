@@ -22,11 +22,10 @@ app.get('/', (req, res) => {
     
     // if it's smaller than the threshold (200 minutes) then add it to the array
     if (index === 0 || diff <= 200) {
-      console.log(index);
       segmentElements.push(segment);
     } else {
-      console.log(index);
       segments.push(segmentElements);
+      // empty the trip array and add the first location
       segmentElements = [];
       segmentElements.push(segment);
     }
@@ -38,7 +37,25 @@ app.get('/', (req, res) => {
 
 app.get('/location/:when', (req, res) => {
   // TODO(Task 2): Return the tracking data closest to `req.params.when` from `exampleData`.
-  res.send({})
+  const selectedDate = req.params.when;
+  
+  // initialize time difference to big number 
+  let diff = 99999999999;
+  let location = {};
+  
+  exampleData.forEach((segment, index) => {
+    // parse date to unix format
+    const currentSegment = Math.ceil(Date.parse(segment.time) / 1000);
+    // get time difference
+    const currentDiff = Math.abs(Math.ceil((currentSegment - selectedDate) / (1000)));
+    
+    if (currentDiff < diff) {
+      
+      diff = currentDiff;
+      location = segment;
+    }
+  });
+  res.json(location);
 })
 
 app.listen(3000, () => console.log('Example app listening on port 3000!'))
